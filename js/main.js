@@ -49,7 +49,7 @@ function pickCard(e) {
         if(matches === 5){
             message.innerText = 'You WONNN!!'
         }
-
+        
         flipOne = undefined // <-- Keep so the next pair starts fresh
         flipTwo = undefined
 
