@@ -14,7 +14,7 @@ function random() {
         const div = document.createElement('div')
         container.appendChild(div)
         div.classList.add(cards[rando])
-        div.innerText = 'Cards' // empty string to help css
+        div.innerText = 'Card' // empty string to help css
         cards.splice(rando, 1)
     }
     flipOne = undefined
