@@ -1,6 +1,9 @@
 const container = document.querySelector('#container')
 container.addEventListener('click', pickCard)
 
+const message = document.querySelector('#message')
+let matches = 0 // how many matches the play has found
+
 document.querySelector('button').addEventListener('click', random)
 let flipOne = undefined
 let flipTwo = undefined
@@ -41,18 +44,31 @@ function pickCard(e) {
     if (flipOne.className === flipTwo.className) {
         console.log('Match')
         // if match stay flipped
+        matches++ //<- counts/adds a matched pair
+
+        if(matches === 5){
+            message.innerText = 'You WONNN!!'
+        }
+
+        flipOne = undefined // <-- Keep so the next pair starts fresh
+        flipTwo = undefined
 
     } else {
         console.log('Try Again')
         //if not match flip back
-        flipOne.innerText = 'Card' // empty string to help css
-        flipTwo.innerText = 'Card' // empty string to help css
+        lock = true // <- blocks user from clicking during the timeout
+
+        // vvv added because wrong guess = wait 1 second so the player can see the second card,
+        // then flip both cards back face down
+        setTimeout(function () {
+            flipOne.innerText = 'Card' // empty string to help css
+            flipTwo.innerText = 'Card' // empty string to help css
+
+            // after every match set
+            flipOne = undefined
+            flipTwo = undefined
+            lock = false // lets user click again
+
+        }, 500)
     }
-    // after every match set
-    flipOne = undefined
-    flipTwo = undefined
-
-    // randomize
-    // restart
-
 }
