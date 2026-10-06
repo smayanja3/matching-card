@@ -21,7 +21,7 @@ function random() {
         cards.splice(rando, 1)
     }
     flipOne = undefined
-    flipTwo = undefined
+    flipTwo = undefined 
 }
 random()
 
