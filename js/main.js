@@ -8,7 +8,7 @@ document.querySelector('button').addEventListener('click', random)
 let flipOne = undefined
 let flipTwo = undefined
 // randomize cards outside
-function random() {
+function random() { 
     container.innerHTML = ''
     // vvv cards
     let cards = ['turtle', 'turtle', 'frog', 'frog', 'cat', 'cat', 'dog', 'dog', 'mouse', 'mouse']
